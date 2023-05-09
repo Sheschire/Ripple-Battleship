@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripple Battleship</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <table>
+        <tbody>
+          {% for row in board %}
+          <tr>
+            {% for cell in row %}
+                <td {% if cell != 0 %} class="ship hidden"{% endif %}></td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    
+      <div class="menu">
+        <button>Show Battleships</button>
+        <div class="ships">
+            <p>1 x Croiseur</p>
+            <p>2 x Escorteur</p>
+            <p>3x Torpilleur</p>
+            <p>4x Sous-marin</p>
+        </div>
+      </div>
+      
+</body>
+
+<script>
+    const btn = document.querySelector('button');
+    const ships = document.querySelectorAll('.ship');
+    const shipsArray = [...ships];
+    const td = 
+
+    // Show ship
+    btn.addEventListener('click', (event) => {
+        shipsArray.forEach((ship) => {
+            ship.classList.contains("hidden") ? 
+            ship.classList.remove("hidden") :
+            ship.classList.add("hidden")
+        })
+    })
+
+    shipsArray.forEach((ship) => {
+        ship.addEventListener('click', (event) => {
+            ship.style.backgroundColor = 'yellow';
+            ship.classList.remove("hidden", "ship");
+        })
+    })
+
+</script>
+
+</html>
